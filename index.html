@@ -3,175 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theo Lemuel | Portfolio</title>
+    <title>Theo Ananda Lemuel | IS Student & Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
     <style>
-        body { background-color: #030712; color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .glass-card { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .glass-card:hover { border-color: #2dd4bf; transform: scale(1.02); }
-        .skill-badge { background: rgba(45, 212, 191, 0.1); border: 1px solid rgba(45, 212, 191, 0.2); }
-        .gradient-text { background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: currentColor; transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
+        .card-hover:hover { transform: translateY(-4px); }
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
-<body class="overflow-x-hidden">
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
 
-    <section class="min-h-screen flex items-center px-6 lg:px-24 relative" id="about">
-        <div class="max-w-4xl z-10" data-aos="fade-right">
-            <span class="text-teal-400 font-mono tracking-widest text-sm mb-4 block uppercase">Backend Developer Intern</span>
-            <h1 class="text-6xl md:text-8xl font-black mb-6">Theo <span class="gradient-text">Lemuel</span></h1>
-            <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
-                An action-oriented Information Systems student at the <strong>Universitas Indonesia</strong>. 
-                I specialize in building scalable web applications using <strong>Spring Boot, Django, and React</strong>[cite: 5].
-            </p>
-            
-            <div class="mb-10">
-                <h3 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Core Stack</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-badge px-4 py-2 rounded-full text-xs text-teal-300">Java/Spring Boot [cite: 9]</span>
-                    <span class="skill-badge px-4 py-2 rounded-full text-xs text-teal-300">Python/Django [cite: 9]</span>
-                    <span class="skill-badge px-4 py-2 rounded-full text-xs text-teal-300">PostgreSQL [cite: 9]</span>
-                    <span class="skill-badge px-4 py-2 rounded-full text-xs text-teal-300">Next.js [cite: 8]</span>
-                </div>
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-zinc-950/90 backdrop-blur border-b border-zinc-200 dark:border-zinc-800 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="#home" class="text-xl font-black font-mono">THEO</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="nav-link relative text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">About</a>
+                <a href="#projects" class="nav-link relative text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">Projects</a>
+                <a href="#experience" class="nav-link relative text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">Experience</a>
+                <a href="#contact" class="nav-link relative text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">Contact</a>
+                <button id="theme" class="p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700">
+                    <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                    <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                </button>
             </div>
+            <button id="menu" class="md:hidden p-2"><i data-lucide="menu" class="w-6 h-6"></i></button>
+        </div>
+        <div id="mobile" class="hidden md:hidden border-t border-zinc-200 dark:border-zinc-800 px-6 py-4 space-y-3">
+            <a href="#about" class="block text-sm font-medium">About</a>
+            <a href="#projects" class="block text-sm font-medium">Projects</a>
+            <a href="#experience" class="block text-sm font-medium">Experience</a>
+            <a href="#contact" class="block text-sm font-medium">Contact</a>
+        </div>
+    </nav>
 
-            <div class="flex flex-wrap gap-4">
-                <a href="CV_Theo_Ananda_Lemuel.pdf" class="bg-teal-500 text-black px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:bg-teal-400 transition transform hover:-translate-y-1">
-                    <i data-lucide="file-text" class="w-5 h-5"></i> View Resume
-                </a>
-                <div class="flex items-center gap-4 px-4 text-gray-400">
-                    <a href="mailto:theoal2005@gmail.com" class="hover:text-teal-400 transition"><i data-lucide="mail"></i></a>
-                    <a href="#" class="hover:text-teal-400 transition"><i data-lucide="linkedin"></i></a>
-                    <a href="#" class="hover:text-teal-400 transition"><i data-lucide="github"></i></a>
-                </div>
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-24 pb-12">
+        <div class="max-w-4xl text-center">
+            <div class="inline-block px-4 py-1.5 mb-6 text-xs font-mono font-semibold tracking-wider uppercase bg-zinc-100 dark:bg-zinc-800 rounded-full">Jakarta, Indonesia</div>
+            <h1 class="text-5xl md:text-7xl font-black mb-6">Theo Ananda <span class="block md:inline">Lemuel</span></h1>
+            <p class="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-4 font-medium">Information Systems Student at Universitas Indonesia</p>
+            <p class="text-lg text-zinc-500 mb-8 max-w-2xl mx-auto">Fusing computational logic with business strategy to build secure, efficient, and impact-driven technology.</p>
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 mb-10 bg-gradient-to-r from-zinc-900 to-zinc-700 dark:from-zinc-100 dark:to-zinc-300 text-white dark:text-zinc-900 rounded-full text-sm font-semibold">
+                <i data-lucide="award" class="w-4 h-4"></i>
+                <span>Bayan Scholarship Awardee • Highest GPA 2023</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg font-semibold hover:bg-zinc-800 dark:hover:bg-zinc-200">View My Work <i data-lucide="arrow-down" class="w-4 h-4"></i></a>
+                <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-zinc-900 dark:border-zinc-100 rounded-lg font-semibold hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-zinc-900">Get In Touch</a>
+            </div>
+            <div class="flex justify-center gap-6">
+                <a href="https://github.com/theoalll" target="_blank" class="p-2 hover:text-zinc-600 dark:hover:text-zinc-400"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/in/theoal/" target="_blank" class="p-2 hover:text-zinc-600 dark:hover:text-zinc-400"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="mailto:theoal2005@gmail.com" class="p-2 hover:text-zinc-600 dark:hover:text-zinc-400"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="https://instagram.com/theoal._" target="_blank" class="p-2 hover:text-zinc-600 dark:hover:text-zinc-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 lg:px-24" id="education">
-        <h2 class="text-3xl font-bold mb-12 flex items-center gap-4" data-aos="fade-up">
-            <span class="text-teal-500">01.</span> Education
-        </h2>
-        <div class="glass-card p-8 rounded-3xl max-w-2xl" data-aos="zoom-in-up">
-            <div class="flex justify-between items-start mb-4">
+    <!-- About -->
+    <section id="about" class="py-20 px-6 bg-zinc-50 dark:bg-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-2xl font-mono font-bold text-zinc-400">01.</span>
+                <h2 class="text-3xl md:text-4xl font-black">About Me</h2>
+                <div class="flex-1 h-px bg-zinc-300 dark:bg-zinc-700"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-4 text-zinc-600 dark:text-zinc-400">
+                    <p>I'm an undergraduate student in <strong class="text-zinc-900 dark:text-zinc-100">Information Systems at Universitas Indonesia</strong>, passionate about leveraging technology to solve real-world problems.</p>
+                    <p>As a developer, I'm driven by curiosity and the thrill of turning complex problems into elegant, efficient solutions.</p>
+                    <p>What sets my approach apart is my focus on understanding the <strong class="text-zinc-900 dark:text-zinc-100">"why"</strong> behind every problem, not just the "how."</p>
+                    <p class="font-semibold text-zinc-900 dark:text-zinc-100">Build with purpose, learn continuously, and strive for solutions that matter.</p>
+                </div>
                 <div>
-                    <h3 class="text-2xl font-bold">Universitas Indonesia </h3>
-                    <p class="text-teal-400">Bachelor of Information Systems </p>
-                </div>
-                <span class="text-3xl font-black text-teal-500">3.94 <span class="text-xs text-gray-500">GPA</span> </span>
-            </div>
-            <p class="text-gray-400">Expected Graduation: August 2027 </p>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 lg:px-24" id="projects">
-        <h2 class="text-3xl font-bold mb-12 flex items-center gap-4" data-aos="fade-up">
-            <span class="text-teal-500">02.</span> Technical Projects
-        </h2>
-        <div class="grid grid-cols-1 gap-12">
-            <div class="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row h-full" data-aos="fade-up">
-                <div class="swiper projectSwiper w-full md:w-1/2 h-64 md:h-auto border-r border-white/10">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide bg-gray-800 flex items-center justify-center italic text-gray-500">[Screenshot: Microservices Architecture]</div>
-                        <div class="swiper-slide bg-gray-700 flex items-center justify-center italic text-gray-500">[Screenshot: Booking Dashboard]</div>
-                        <div class="swiper-slide bg-gray-800 flex items-center justify-center italic text-gray-500">[Screenshot: JUnit Test Results]</div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="p-8 md:w-1/2 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3">Flight Ticketing System</h3> [cite: 13]
-                        <p class="text-gray-400 mb-6 text-sm">Engineered a distributed system using a microservices approach with Spring Boot and Vue.js. [cite: 14] Validated core logic with JUnit and Mockito. [cite: 17]</p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="skill-badge px-3 py-1 rounded text-[10px] text-teal-300">Spring Boot</span> [cite: 13]
-                            <span class="skill-badge px-3 py-1 rounded text-[10px] text-teal-300">AWS k3s</span> [cite: 19]
-                            <span class="skill-badge px-3 py-1 rounded text-[10px] text-teal-300">JUnit</span> [cite: 17]
+                    <h3 class="text-sm font-bold text-zinc-500 uppercase tracking-wider mb-4">Technical Skills</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-xs text-zinc-400 mb-2 uppercase">Programming</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-md text-xs font-medium">Java/Spring Boot</span>
+                                <span class="px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-md text-xs font-medium">Python/Django</span>
+                                <span class="px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-md text-xs font-medium">Next.js</span>
+                                <span class="px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-md text-xs font-medium">Flutter</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs text-zinc-400 mb-2 uppercase">Data & Cloud</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-md text-xs font-medium">PostgreSQL</span>
+                                <span class="px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-md text-xs font-medium">AWS</span>
+                                <span class="px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-md text-xs font-medium">Docker</span>
+                            </div>
                         </div>
                     </div>
-                    <a href="#" class="inline-flex items-center gap-2 text-white font-bold hover:text-teal-400 transition">
-                        View GitHub Repository <i data-lucide="github" class="w-4 h-4"></i>
+                    <h3 class="text-sm font-bold text-zinc-500 uppercase tracking-wider mt-6 mb-3">Soft Skills</h3>
+                    <div class="grid grid-cols-2 gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i>Problem-solving</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i>Leadership</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i>Communication</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i>Adaptability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-2xl font-mono font-bold text-zinc-400">02.</span>
+                <h2 class="text-3xl md:text-4xl font-black">Featured Projects</h2>
+                <div class="flex-1 h-px bg-zinc-300 dark:bg-zinc-700"></div>
+            </div>
+            <div class="space-y-6">
+                <div class="card-hover border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:shadow-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg aspect-video flex items-center justify-center">
+                            <i data-lucide="plane" class="w-12 h-12 text-zinc-400"></i>
+                        </div>
+                        <div class="md:col-span-2">
+                            <div class="flex justify-between mb-2">
+                                <h3 class="text-xl font-bold">Flight Ticketing System</h3>
+                                <span class="text-xs text-zinc-500">Sep–Dec 2025</span>
+                            </div>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Microservices architecture for flight booking. Supports concurrent operations with AWS k3s deployment and TDD.</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">Spring Boot</span>
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">Vue.js</span>
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">AWS</span>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <a href="https://github.com/theoalll/travel-apap-flight-be.git" target="_blank" class="inline-flex items-center gap-1 font-medium hover:underline"><i data-lucide="github" class="w-4 h-4"></i>Backend</a>
+                                <a href="https://github.com/theoalll/travel-apap-flight-fe.git" target="_blank" class="inline-flex items-center gap-1 font-medium hover:underline"><i data-lucide="github" class="w-4 h-4"></i>Frontend</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:shadow-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg aspect-video flex items-center justify-center">
+                            <i data-lucide="heart-handshake" class="w-12 h-12 text-zinc-400"></i>
+                        </div>
+                        <div class="md:col-span-2">
+                            <div class="flex justify-between mb-2">
+                                <h3 class="text-xl font-bold">Crowdfunding Platform</h3>
+                                <span class="text-xs text-zinc-500">Feb–May 2025</span>
+                            </div>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Decoupled platform with Next.js and Django REST API. Secure campaigns with payment processing.</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">Next.js</span>
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">Django</span>
+                            </div>
+                            <a href="https://github.com/theoalll/bantuwin-frontend-next.git" target="_blank" class="inline-flex items-center gap-1 text-sm font-medium hover:underline"><i data-lucide="github" class="w-4 h-4"></i>View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:shadow-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg aspect-video flex items-center justify-center">
+                            <i data-lucide="stethoscope" class="w-12 h-12 text-zinc-400"></i>
+                        </div>
+                        <div class="md:col-span-2">
+                            <div class="flex justify-between mb-2">
+                                <h3 class="text-xl font-bold">Pet Clinic Management</h3>
+                                <span class="text-xs text-zinc-500">Feb–May 2025</span>
+                            </div>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Full-stack system for veterinary clinics. Optimized database schema and automated workflows.</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">Django</span>
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">PostgreSQL</span>
+                            </div>
+                            <a href="https://github.com/Basdat-B-05-Pet-Clinic/pet-clinic.git" target="_blank" class="inline-flex items-center gap-1 text-sm font-medium hover:underline"><i data-lucide="github" class="w-4 h-4"></i>View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-hover border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:shadow-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg aspect-video flex items-center justify-center">
+                            <i data-lucide="shopping-cart" class="w-12 h-12 text-zinc-400"></i>
+                        </div>
+                        <div class="md:col-span-2">
+                            <div class="flex justify-between mb-2">
+                                <h3 class="text-xl font-bold">Cross-Platform E-Commerce</h3>
+                                <span class="text-xs text-zinc-500">Sep–Dec 2024</span>
+                            </div>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Product catalog across web and mobile. Consistent experience with real-time sync.</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">Django</span>
+                                <span class="px-2 py-1 bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-xs">Flutter</span>
+                            </div>
+                            <div class="flex gap-3 text-sm">
+                                <a href="https://github.com/A04-2024/furnico.git" target="_blank" class="inline-flex items-center gap-1 font-medium hover:underline"><i data-lucide="github" class="w-4 h-4"></i>Web</a>
+                                <a href="https://github.com/A04-2024/furnico-mobile.git" target="_blank" class="inline-flex items-center gap-1 font-medium hover:underline"><i data-lucide="github" class="w-4 h-4"></i>Mobile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-20 px-6 bg-zinc-50 dark:bg-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-2xl font-mono font-bold text-zinc-400">03.</span>
+                <h2 class="text-3xl md:text-4xl font-black">Experience</h2>
+                <div class="flex-1 h-px bg-zinc-300 dark:bg-zinc-700"></div>
+            </div>
+            <div class="space-y-8">
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-6">
+                    <div class="flex justify-between mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold">TA - Statistics</h3>
+                            <p class="text-zinc-600 dark:text-zinc-400 text-sm">Fasilkom UI</p>
+                        </div>
+                        <span class="text-sm text-zinc-500">Aug–Dec 2025</span>
+                    </div>
+                    <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1 mt-2">
+                        <li>• Facilitated statistical modeling and data analysis understanding</li>
+                        <li>• Provided technical support for academic projects</li>
+                    </ul>
+                    <div class="mt-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg aspect-video w-full max-w-sm flex items-center justify-center">
+                        <span class="text-zinc-400 text-xs">[Photo Placeholder]</span>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-6">
+                    <div class="flex justify-between mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold">TA - Computer Architecture</h3>
+                            <p class="text-zinc-600 dark:text-zinc-400 text-sm">Fasilkom UI</p>
+                        </div>
+                        <span class="text-sm text-zinc-500">Feb–Jun 2025</span>
+                    </div>
+                    <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1 mt-2">
+                        <li>• Guided students through hardware-software interfacing</li>
+                        <li>• Reinforced foundational computing knowledge</li>
+                    </ul>
+                    <div class="mt-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg aspect-video w-full max-w-sm flex items-center justify-center">
+                        <span class="text-zinc-400 text-xs">[Photo Placeholder]</span>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-6">
+                    <div class="flex justify-between mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold">Vice PIC - COMPFEST 17</h3>
+                            <p class="text-zinc-600 dark:text-zinc-400 text-sm">Fasilkom UI</p>
+                        </div>
+                        <span class="text-sm text-zinc-500">Feb–Dec 2025</span>
+                    </div>
+                    <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1 mt-2">
+                        <li>• Led team of 9 for 5 major events with 1,000+ attendees</li>
+                        <li>• Coordinated technical vendors for flawless AV execution</li>
+                        <li>• Developed detailed technical rundowns and briefings</li>
+                    </ul>
+                    <div class="mt-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg aspect-video w-full max-w-sm flex items-center justify-center">
+                        <span class="text-zinc-400 text-xs">[Photo Placeholder]</span>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-6">
+                    <div class="flex justify-between mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold">Mentor - Programming Fundamentals</h3>
+                            <p class="text-zinc-600 dark:text-zinc-400 text-sm">Fasilkom UI</p>
+                        </div>
+                        <span class="text-sm text-zinc-500">Sep–Oct 2024</span>
+                    </div>
+                    <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1 mt-2">
+                        <li>• Mentored students in programming logic and debugging</li>
+                        <li>• Achieved 90% comprehension rate</li>
+                    </ul>
+                    <div class="mt-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg aspect-video w-full max-w-sm flex items-center justify-center">
+                        <span class="text-zinc-400 text-xs">[Photo Placeholder]</span>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-zinc-900 dark:border-zinc-100 pl-6">
+                    <div class="flex justify-between mb-2">
+                        <div>
+                            <h3 class="text-xl font-bold">Mentor - OKK UI 2024</h3>
+                            <p class="text-zinc-600 dark:text-zinc-400 text-sm">Universitas Indonesia</p>
+                        </div>
+                        <span class="text-sm text-zinc-500">Sep–Oct 2024</span>
+                    </div>
+                    <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1 mt-2">
+                        <li>• Guided new students through university adaptation</li>
+                        <li>• Fostered inclusive learning environment</li>
+                    </ul>
+                    <div class="mt-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg aspect-video w-full max-w-sm flex items-center justify-center">
+                        <span class="text-zinc-400 text-xs">[Photo Placeholder]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-2xl font-mono font-bold text-zinc-400">04.</span>
+                <h2 class="text-3xl md:text-4xl font-black">Certifications</h2>
+                <div class="flex-1 h-px bg-zinc-300 dark:bg-zinc-700"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-zinc-100 dark:bg-zinc-800 rounded-lg">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Google Digital Marketing & E-Commerce</h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Coursera • 2025</p>
+                            <p class="text-xs text-zinc-500">Digital marketing strategies and e-commerce fundamentals</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-zinc-200 dark:border-zinc-800 rounded-xl p-6">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-zinc-100 dark:bg-zinc-800 rounded-lg">
+                            <i data-lucide="code" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1">Web Development Course</h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Google Developer Group @ UI • 2024</p>
+                            <p class="text-xs text-zinc-500">Modern web application development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+        <section id="contact" class="py-20 px-6 bg-zinc-50 dark:bg-zinc-900">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-black mb-4">Get In Touch</h2>
+                <p class="text-zinc-600 dark:text-zinc-400 mb-12 max-w-xl mx-auto">I'm currently seeking internship opportunities and open to collaborating on interesting projects. Let's connect!</p>
+                <div class="flex flex-wrap justify-center gap-6 mb-12">
+                    <a href="mailto:theoal2005@gmail.com" class="flex flex-col items-center gap-2 p-6 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-900 dark:hover:border-zinc-100 transition">
+                        <i data-lucide="mail" class="w-8 h-8"></i>
+                        <span class="font-medium">Email</span>
+                        <span class="text-sm text-zinc-500">theoal2005@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/theoal/" target="_blank" class="flex flex-col items-center gap-2 p-6 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-900 dark:hover:border-zinc-100 transition">
+                        <i data-lucide="linkedin" class="w-8 h-8"></i>
+                        <span class="font-medium">LinkedIn</span>
+                        <span class="text-sm text-zinc-500">@theoal</span>
+                    </a>
+                    <a href="https://github.com/theoalll" target="_blank" class="flex flex-col items-center gap-2 p-6 border border-zinc-200 dark:border-zinc-800 rounded-xl hover:border-zinc-900 dark:hover:border-zinc-100 transition">
+                        <i data-lucide="github" class="w-8 h-8"></i>
+                        <span class="font-medium">GitHub</span>
+                        <span class="text-sm text-zinc-500">@theoalll</span>
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 lg:px-24 bg-alt" id="experience">
-        <h2 class="text-3xl font-bold mb-12 flex items-center gap-4" data-aos="fade-up">
-            <span class="text-teal-500">03.</span> Leadership & Impact
-        </h2>
-        <div class="glass-card rounded-3xl p-8" data-aos="fade-up">
-            <div class="flex flex-col lg:flex-row gap-8">
-                <div class="lg:w-1/3">
-                    <h3 class="text-2xl font-bold">COMPFEST 17</h3> [cite: 37]
-                    <p class="text-teal-400 font-mono text-sm mb-4">Vice PIC Event Division</p> [cite: 37]
-                    <ul class="text-gray-400 text-sm space-y-3">
-                        <li>• Led team of 9 for 5 major events. [cite: 38]</li>
-                        <li>• Managed operations for 1,000+ attendees. [cite: 38]</li>
-                        <li>• Developed detailed technical briefings. [cite: 40]</li>
-                    </ul>
-                </div>
-                <div class="swiper expSwiper lg:w-2/3 h-64 rounded-2xl overflow-hidden shadow-2xl">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide bg-teal-900/20 flex items-center justify-center italic text-gray-500">[Photo: Event Execution]</div>
-                        <div class="swiper-slide bg-teal-900/20 flex items-center justify-center italic text-gray-500">[Photo: Technical Rundown Sample]</div>
-                    </div>
-                    <div class="swiper-button-next text-teal-500 scale-50"></div>
-                    <div class="swiper-button-prev text-teal-500 scale-50"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-24 px-6 lg:px-24 bg-black/50 border-t border-white/5" id="contact">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-8">Get In Touch</h2>
-            <div class="flex flex-wrap justify-center gap-8 mb-12">
-                <a href="https://wa.me/085888167629" class="group flex flex-col items-center gap-2">
-                    <div class="p-4 rounded-full glass-card group-hover:bg-teal-500 group-hover:text-black transition duration-500">
-                        <i data-lucide="phone"></i>
-                    </div>
-                    <span class="text-xs text-gray-500">WhatsApp</span>
-                </a>
-                <a href="mailto:theoal2005@gmail.com" class="group flex flex-col items-center gap-2">
-                    <div class="p-4 rounded-full glass-card group-hover:bg-teal-500 group-hover:text-black transition duration-500">
-                        <i data-lucide="mail"></i>
-                    </div>
-                    <span class="text-xs text-gray-500">Email [cite: 2]</span>
-                </a>
-                <a href="#" class="group flex flex-col items-center gap-2">
-                    <div class="p-4 rounded-full glass-card group-hover:bg-teal-500 group-hover:text-black transition duration-500">
-                        <i data-lucide="instagram"></i>
-                    </div>
-                    <span class="text-xs text-gray-500">Instagram</span>
-                </a>
-                <a href="#" class="group flex flex-col items-center gap-2">
-                    <div class="p-4 rounded-full glass-card group-hover:bg-teal-500 group-hover:text-black transition duration-500">
-                        <i data-lucide="github"></i>
-                    </div>
-                    <span class="text-xs text-gray-500">GitHub [cite: 10]</span>
+                <a href="mailto:theoal2005@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-lg font-bold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition">
+                    Send Me a Message
+                    <i data-lucide="send" class="w-5 h-5"></i>
                 </a>
             </div>
-            <p class="text-gray-500 text-sm font-mono">© 2026 Theo Ananda Lemuel. Built with precision.</p>
-        </div>
-    </footer>
+        </section>
 
-    <script>
-        lucide.createIcons();
-        AOS.init({ duration: 1000, once: true });
-        const swiperOptions = {
-            loop: true,
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            autoplay: { delay: 4000, disableOnInteraction: false },
-        };
+        <!-- Footer -->
+        <footer class="py-12 px-6 border-t border-zinc-200 dark:border-zinc-800">
+            <div class="max-w-6xl mx-auto text-center">
+                <p class="text-sm text-zinc-500 font-mono">© 2026 Theo Ananda Lemuel. Built with precision.</p>
+            </div>
+        </footer>
 
-        new Swiper('.projectSwiper', swiperOptions);
-        new Swiper('.expSwiper', swiperOptions);
-    </script>
-</body>
+        <script>
+            // Icons
+            lucide.createIcons();
+            
+            // Theme Toggle
+            const html = document.documentElement;
+            const themeBtn = document.getElementById('theme');
+            const mobileMenu = document.getElementById('mobile');
+            const menuBtn = document.getElementById('menu');
+            
+            // Check saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.classList.toggle('dark', savedTheme === 'dark');
+            
+            themeBtn.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+                lucide.createIcons();
+            });
+            
+            // Mobile Menu
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                lucide.createIcons();
+            });
+            
+            // Close mobile menu on link click
+            document.querySelectorAll('#mobile a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-lg');
+                } else {
+                    nav.classList.remove('shadow-lg');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>
