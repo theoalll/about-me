@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theo Ananda Lemuel | IS Student & Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/lucide@0.303.0"></script>
     <script>
         tailwind.config = { darkMode: 'class' }
     </script>
@@ -74,12 +74,17 @@
         
         /* Expandable content */
         .expandable {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.4s ease;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
         }
-        .expandable.open { grid-template-rows: 1fr; }
-        .expandable > div { overflow: hidden; }
+        /* Line clamp fallback */
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
         
         /* Filter buttons */
         .filter-btn {
@@ -175,11 +180,11 @@
                 <a href="#experience" class="nav-link relative text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-violet-500 transition">Experience</a>
                 <a href="#contact" class="nav-link relative text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-violet-500 transition">Contact</a>
                 <button id="theme" class="p-2 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 text-white hover:scale-110 transition-transform">
-                    <i data-feather="sun" class="w-4 h-4 dark:hidden"></i>
-                    <i data-feather="moon" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i>
+                    <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
                 </button>
             </div>
-            <button id="menu" class="md:hidden p-2 hover:scale-110 transition-transform"><i data-feather="menu" class="w-6 h-6"></i></button>
+            <button id="menu" class="md:hidden p-2 hover:scale-110 transition-transform"><i data-lucide="menu" class="w-6 h-6"></i></button>
         </div>
         <div id="mobile" class="hidden md:hidden border-t border-violet-200/20 dark:border-violet-500/20 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl px-6 py-4 space-y-3">
             <a href="#about" class="block text-sm font-medium hover:text-violet-500 transition">About</a>
@@ -254,16 +259,16 @@
             
             <div class="flex justify-center gap-6">
                 <a href="https://github.com/theoalll" target="_blank" class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-white transition-all hover:scale-110">
-                    <i data-feather="github" class="w-5 h-5"></i>
+                    <i data-lucide="github" class="w-5 h-5"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/theoal/" target="_blank" class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-white transition-all hover:scale-110">
-                    <i data-feather="linkedin" class="w-5 h-5"></i>
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
                 </a>
                 <a href="mailto:theoal2005@gmail.com" class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-white transition-all hover:scale-110">
-                    <i data-feather="mail" class="w-5 h-5"></i>
+                    <i data-lucide="mail" class="w-5 h-5"></i>
                 </a>
                 <a href="https://instagram.com/theoal._" target="_blank" class="p-3 rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-gradient-to-br hover:from-violet-500 hover:to-blue-500 hover:text-white transition-all hover:scale-110">
-                    <i data-feather="instagram" class="w-5 h-5"></i>
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
                 </a>
             </div>
         </div>
@@ -585,7 +590,7 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h3 class="text-xl font-bold mb-8 flex items-center gap-2">
-                        <i data-feather="briefcase" class="w-6 h-6 text-violet-500"></i>
+                        <i data-lucide="briefcase" class="w-6 h-6 text-violet-500"></i>
                         Work Experience
                     </h3>
                     <div class="space-y-10">
@@ -618,25 +623,10 @@
                                     <span class="text-xs text-zinc-500 bg-violet-500/10 px-3 py-1 rounded-full">Feb 2026 – Present</span>
                                 </div>
                             </div>
-                            <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2 mb-4">
-                                <li class="flex items-start gap-2">
-                                    <span class="flex items-start gap-2">
-                                    <i data-feather="chevron-right" class="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0"></i>
-                                    <span>Guided students in understanding information systems management in industry by supervising case study reports based on interviews with real companies</span>
-                                </span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="flex items-start gap-2">
-                                    <i data-feather="chevron-right" class="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0"></i>
-                                    <span>Graded assignments and study case reports, providing constructive feedback to students</span>
-                                </span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <span class="flex items-start gap-2">
-                                    <i data-feather="chevron-right" class="w-4 h-4 text-violet-500 mt-0.5 flex-shrink-0"></i>
-                                    <span>Assisted in exam proctoring to ensure academic integrity</span>
-                                </span>
-                                </li>
+                            <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Guided students in understanding information systems management in industry by supervising case study reports based on interviews with real companies</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Graded assignments and case study reports, providing constructive feedback</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Assisted in exam proctoring to ensure academic integrity</span></li>
                             </ul>
                         </div>
 
@@ -698,7 +688,7 @@
 
                 <div>
                     <h3 class="text-xl font-bold mb-8 flex items-center gap-2">
-                        <i data-feather="users" class="w-6 h-6 text-blue-500"></i>
+                        <i data-lucide="users" class="w-6 h-6 text-blue-500"></i>
                         Organization & Volunteering
                     </h3>
                     <div class="space-y-10">
@@ -861,7 +851,7 @@
                 <a href="mailto:theoal2005@gmail.com" class="gradient-border hover-lift group">
                     <div class="p-6 text-center">
                         <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                            <i data-feather="mail" class="w-8 h-8"></i>
+                            <i data-lucide="mail" class="w-8 h-8"></i>
                         </div>
                         <span class="font-bold block mb-1 group-hover:gradient-text transition">Email</span>
                         <span class="text-sm text-zinc-500">theoal2005@gmail.com</span>
@@ -870,7 +860,7 @@
                 <a href="https://www.linkedin.com/in/theoal/" target="_blank" class="gradient-border hover-lift group">
                     <div class="p-6 text-center">
                         <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                            <i data-feather="linkedin" class="w-8 h-8"></i>
+                            <i data-lucide="linkedin" class="w-8 h-8"></i>
                         </div>
                         <span class="font-bold block mb-1 group-hover:gradient-text transition">LinkedIn</span>
                         <span class="text-sm text-zinc-500">@theoal</span>
@@ -879,7 +869,7 @@
                 <a href="https://github.com/theoalll" target="_blank" class="gradient-border hover-lift group">
                     <div class="p-6 text-center">
                         <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                            <i data-feather="github" class="w-8 h-8"></i>
+                            <i data-lucide="github" class="w-8 h-8"></i>
                         </div>
                         <span class="font-bold block mb-1 group-hover:gradient-text transition">GitHub</span>
                         <span class="text-sm text-zinc-500">@theoalll</span>
@@ -889,7 +879,7 @@
             
             <a href="mailto:theoal2005@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600 text-white rounded-xl font-bold hover:scale-105 transition-transform shadow-lg hover:shadow-2xl glow">
                 <span>Send Me a Message</span>
-                <i data-feather="star" class="w-5 h-5"></i>
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
             </a>
         </div>
     </section>
@@ -909,7 +899,7 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        try { lucide.createIcons(); } catch(e) { console.warn('Icons:', e); }
 
         // ---- Theme ----
         const html = document.documentElement;
@@ -919,14 +909,14 @@
         themeBtn.addEventListener('click', () => {
             html.classList.toggle('dark');
             localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-            feather.replace();
+            lucide.createIcons();
         });
 
         // ---- Mobile menu ----
         const mobileMenu = document.getElementById('mobile');
         document.getElementById('menu').addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            feather.replace();
+            lucide.createIcons();
         });
         document.querySelectorAll('#mobile a').forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
@@ -984,11 +974,18 @@
         // ---- Expand / Collapse (generic toggle) ----
         function toggleExpand(id, btn) {
             const container = document.getElementById(id);
-            const isOpen = container.classList.toggle('open');
+            const isOpen = container.classList.contains('open');
+            if (isOpen) {
+                container.style.maxHeight = '0';
+                container.classList.remove('open');
+            } else {
+                container.classList.add('open');
+                container.style.maxHeight = container.scrollHeight + 'px';
+            }
             const span = btn.querySelector('span');
             const icon = btn.querySelector('i');
-            span.textContent = isOpen ? 'Show Less' : 'Show Details';
-            if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            span.textContent = isOpen ? 'Show Details' : 'Show Less';
+            if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
             lucide.createIcons();
         }
 
