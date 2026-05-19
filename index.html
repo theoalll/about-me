@@ -110,17 +110,8 @@
         }
         
         /* Project card hide/show for filter */
-        .project-card {
-            transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.5s ease;
-        }
         .project-card.hidden-filter {
-            opacity: 0;
-            transform: scale(0.95);
-            max-height: 0;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            pointer-events: none;
+            display: none;
         }
         
         /* Skill bar animation */
@@ -222,7 +213,7 @@
             
             <div class="inline-flex items-center gap-2 px-5 py-2.5 mb-8 bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600 text-white rounded-full text-sm font-semibold glow">
                 <i data-lucide="trophy" class="w-4 h-4"></i>
-                <span>Bayan Scholarship Awardee &bull; Highest GPA 2023</span>
+                <span>Bayan Scholarship Awardee &bull; 3.94 GPA</span>
             </div>
             
             <!-- Quick stats -->
@@ -256,7 +247,7 @@
                     <i data-lucide="file-text" class="w-4 h-4"></i>Resume
                 </a>
                 <a href="https://drive.google.com/file/d/12_3Ivuv7Hicu21MsqOpiI55PzsvxZ8KP/view?usp=sharing" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-amber-600 dark:border-amber-400 rounded-lg font-semibold text-amber-600 dark:text-amber-400 hover:bg-amber-600 hover:text-white dark:hover:bg-amber-400 dark:hover:text-zinc-900 transition hover:scale-105">
-                    <i data-lucide="scroll-text" class="w-4 h-4"></i>Transcript
+                    <i data-lucide="scroll-text" class="w-4 h-4"></i>Academic Transcript
                 </a>
             </div>
             
@@ -299,6 +290,8 @@
                             <span class="px-3 py-1 bg-violet-500/10 border border-violet-500/20 rounded-full">Spring Boot Microservices</span>
                             <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full">Next.js Full-Stack</span>
                             <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">System Architecture</span>
+                            <span class="px-3 py-1 bg-rose-500/10 border border-rose-500/20 rounded-full">QA</span>
+                            <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full">System Security</span>
                         </div>
                     </div>
                 </div>
@@ -393,14 +386,14 @@
                             <h3 class="text-lg font-bold group-hover:gradient-text transition">Infrastructure Project Facilitation IS</h3>
                             <span class="text-xs text-zinc-500 bg-emerald-500/10 px-2 py-1 rounded whitespace-nowrap">2025</span>
                         </div>
-                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2 line-clamp-2">Full-stack platform with 6 role-based systems, custom dashboards, and multi-stage approval workflows.</p>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2 line-clamp-2"><strong>Full-stack platform</strong> with <strong>6 role-based systems</strong>, custom dashboards, and <strong>multi-stage approval workflows</strong>.</p>
                         <div class="expandable" id="expand-sifpi">
                             <div>
                                 <ul class="text-xs text-zinc-500 dark:text-zinc-400 space-y-1.5 mb-3 pl-4 list-disc">
-                                    <li>Production-grade security: JWT rotation, CSRF, rate limiting, role-permission auth</li>
-                                    <li>Multi-stage approval workflow with async notifications & admin verification</li>
-                                    <li>Integrated SendGrid, Cloudflare R2, Sentry, Leaflet Maps, event-driven architecture, caching</li>
-                                    <li>Bulk CSV/XLSX processing with spreadsheet imports</li>
+                                    <li><strong>Production-grade security</strong>: JWT rotation, CSRF, rate limiting, role-permission auth</li>
+                                    <li><strong>Multi-stage approval workflow</strong> with async notifications &amp; admin verification</li>
+                                    <li>Integrated <strong>SendGrid, Cloudflare R2, Sentry, Leaflet Maps</strong>, event-driven architecture, caching</li>
+                                    <li><strong>Bulk CSV/XLSX processing</strong> with spreadsheet imports</li>
                                 </ul>
                             </div>
                         </div>
@@ -427,14 +420,14 @@
                             <h3 class="text-lg font-bold group-hover:gradient-text transition">Cinema Management &amp; Ticketing</h3>
                             <span class="text-xs text-zinc-500 bg-rose-500/10 px-2 py-1 rounded whitespace-nowrap">2025</span>
                         </div>
-                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Cinema ticketing platform with customer booking, admin dashboard, and 40+ REST API endpoints.</p>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2"><strong>Cinema ticketing platform</strong> with customer booking, <strong>admin dashboard</strong>, and <strong>40+ REST API endpoints</strong>.</p>
                         <div class="expandable" id="expand-cinema">
                             <div>
                                 <ul class="text-xs text-zinc-500 dark:text-zinc-400 space-y-1.5 mb-3 pl-4 list-disc">
-                                    <li>QRIS payment gateway with expiry handling, callbacks, and idempotent protection</li>
-                                    <li>Real-time seat reservation with locking, timeout handling, interactive booking flows</li>
-                                    <li>Multi-service Dockerized architecture with async workers & cron automation</li>
-                                    <li>Automated notification systems for booking lifecycle</li>
+                                    <li><strong>QRIS payment gateway</strong> with expiry handling, callbacks, and idempotent protection</li>
+                                    <li><strong>Real-time seat reservation</strong> with locking, timeout handling, interactive booking flows</li>
+                                    <li><strong>Multi-service Dockerized architecture</strong> with async workers &amp; cron automation</li>
+                                    <li><strong>Automated notification systems</strong> for booking lifecycle</li>
                                 </ul>
                             </div>
                         </div>
@@ -461,13 +454,13 @@
                             <h3 class="text-lg font-bold group-hover:gradient-text transition">Flight Ticketing System</h3>
                             <span class="text-xs text-zinc-500 bg-violet-500/10 px-2 py-1 rounded whitespace-nowrap">2025</span>
                         </div>
-                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Microservices architecture for flight booking with concurrent operations and AWS k3s deployment.</p>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2"><strong>Microservices architecture</strong> for flight booking with <strong>concurrent operations</strong> and <strong>AWS k3s deployment</strong>.</p>
                         <div class="expandable" id="expand-flight">
                             <div>
                                 <ul class="text-xs text-zinc-500 dark:text-zinc-400 space-y-1.5 mb-3 pl-4 list-disc">
-                                    <li>Concurrent booking operations with race condition handling</li>
-                                    <li>Kubernetes (k3s) deployment on AWS infrastructure</li>
-                                    <li>Test-driven development with comprehensive coverage</li>
+                                    <li><strong>Concurrent booking operations</strong> with race condition handling</li>
+                                    <li><strong>Kubernetes (k3s) deployment</strong> on AWS infrastructure</li>
+                                    <li><strong>Test-driven development</strong> with comprehensive coverage</li>
                                 </ul>
                             </div>
                         </div>
@@ -494,13 +487,13 @@
                             <h3 class="text-lg font-bold group-hover:gradient-text transition">Crowdfunding Platform</h3>
                             <span class="text-xs text-zinc-500 bg-blue-500/10 px-2 py-1 rounded whitespace-nowrap">2025</span>
                         </div>
-                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Decoupled platform with Next.js frontend and Django REST API backend. Secure campaigns with payment processing.</p>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2"><strong>Decoupled platform</strong> with Next.js frontend and <strong>Django REST API backend</strong>. <strong>Secure campaigns</strong> with <strong>payment processing</strong>.</p>
                         <div class="expandable" id="expand-crowd">
                             <div>
                                 <ul class="text-xs text-zinc-500 dark:text-zinc-400 space-y-1.5 mb-3 pl-4 list-disc">
-                                    <li>Campaign management with milestone-based fund disbursement</li>
-                                    <li>Payment gateway integration with secure transaction handling</li>
-                                    <li>RESTful API design with comprehensive documentation</li>
+                                    <li><strong>Campaign management</strong> with milestone-based fund disbursement</li>
+                                    <li><strong>Payment gateway integration</strong> with secure transaction handling</li>
+                                    <li><strong>RESTful API design</strong> with comprehensive documentation</li>
                                 </ul>
                             </div>
                         </div>
@@ -523,13 +516,13 @@
                             <h3 class="text-lg font-bold group-hover:gradient-text transition">Pet Clinic Management</h3>
                             <span class="text-xs text-zinc-500 bg-cyan-500/10 px-2 py-1 rounded whitespace-nowrap">2025</span>
                         </div>
-                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Full-stack system for veterinary clinics with optimized database schema and automated workflows.</p>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2"><strong>Full-stack system</strong> for veterinary clinics with <strong>optimized database schema</strong> and <strong>automated workflows</strong>.</p>
                         <div class="expandable" id="expand-pet">
                             <div>
                                 <ul class="text-xs text-zinc-500 dark:text-zinc-400 space-y-1.5 mb-3 pl-4 list-disc">
-                                    <li>Database schema optimized for veterinary clinic operations</li>
-                                    <li>Appointment scheduling and medical record management</li>
-                                    <li>Automated billing and prescription workflows</li>
+                                    <li><strong>Database schema</strong> optimized for veterinary clinic operations</li>
+                                    <li><strong>Appointment scheduling</strong> and medical record management</li>
+                                    <li><strong>Automated billing</strong> and prescription workflows</li>
                                 </ul>
                             </div>
                         </div>
@@ -552,13 +545,13 @@
                             <h3 class="text-lg font-bold group-hover:gradient-text transition">Cross-Platform E-Commerce</h3>
                             <span class="text-xs text-zinc-500 bg-violet-500/10 px-2 py-1 rounded whitespace-nowrap">2024</span>
                         </div>
-                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Product catalog across web and mobile with consistent experience and real-time synchronization.</p>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2">Product catalog across <strong>web and mobile</strong> with consistent experience and <strong>real-time synchronization</strong>.</p>
                         <div class="expandable" id="expand-ecom">
                             <div>
                                 <ul class="text-xs text-zinc-500 dark:text-zinc-400 space-y-1.5 mb-3 pl-4 list-disc">
-                                    <li>Flutter mobile app with shared API layer</li>
-                                    <li>Real-time inventory synchronization across platforms</li>
-                                    <li>Admin dashboard for product and order management</li>
+                                    <li><strong>Flutter mobile app</strong> with shared API layer</li>
+                                    <li><strong>Real-time inventory synchronization</strong> across platforms</li>
+                                    <li><strong>Admin dashboard</strong> for product and order management</li>
                                 </ul>
                             </div>
                         </div>
@@ -610,7 +603,10 @@
                                 </div>
                             </div>
                             <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Developing and maintaining backend services for kiosk application</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Developed <strong>backend services</strong> for cinema ticketing system, including <strong>ticket management, movie scheduling, payment integration, and system logging</strong></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Designed and maintained <strong>RESTful APIs</strong> to support application features</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Integrated <strong>payment gateway</strong> for secure transaction processing</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Collaborated with <strong>frontend and Android teams</strong> to deliver end-to-end features</span></li>
                             </ul>
                         </div>
 
@@ -627,9 +623,9 @@
                                 </div>
                             </div>
                             <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Guided students in understanding information systems management in industry by supervising case study reports based on interviews with real companies</span></li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Graded assignments and case study reports, providing constructive feedback</span></li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Assisted in exam proctoring to ensure academic integrity</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Guided students in understanding <strong>information systems management</strong> in industry by supervising <strong>case study reports</strong> based on interviews with real companies</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Graded assignments and case study reports, providing <strong>constructive feedback</strong></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Assisted in <strong>exam proctoring</strong> to ensure academic integrity</span></li>
                             </ul>
                         </div>
 
@@ -646,10 +642,10 @@
                                 <div class="expandable" id="expand-stats-ta">
                                     <div>
                                         <ul class="space-y-1.5">
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Developed assignments and statistical lab tools</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Graded assignments and provided constructive feedback</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Conducted exam review sessions with supplementary materials</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Assisted in exam proctoring to ensure academic integrity</span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Developed <strong>assignments and statistical lab tools</strong></span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Graded assignments and provided <strong>constructive feedback</strong></span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Conducted <strong>exam review sessions</strong> with supplementary materials</span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Assisted in <strong>exam proctoring</strong> to ensure academic integrity</span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -673,10 +669,10 @@
                                 <div class="expandable" id="expand-arch-ta">
                                     <div>
                                         <ul class="space-y-1.5">
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Designed assembly programming lab exercises</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Evaluated and graded student assignments and lab work</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Developed tutorial sessions for midterm and final exam prep</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Supervised and proctored examinations</span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Designed <strong>assembly programming lab exercises</strong></span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Evaluated and graded <strong>student assignments and lab work</strong></span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Developed <strong>tutorial sessions</strong> for midterm and final exam prep</span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500 mt-0.5 flex-shrink-0"></i><span>Supervised and <strong>proctored examinations</strong></span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -705,14 +701,14 @@
                                 <span class="text-xs text-zinc-500 bg-blue-500/10 px-3 py-1 rounded-full">Feb – Dec 2025</span>
                             </div>
                             <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Second-in-command of Stage division, managed 11 staff</span></li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Coordinated 5 flagship events attended by thousands</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span><strong>Second-in-command</strong> of Stage division, managed <strong>11 staff</strong></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Coordinated <strong>5 flagship events</strong> attended by thousands</span></li>
                             </ul>
                             <div class="expandable" id="expand-compfest">
                                 <div>
                                     <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Facilitated cross-division collaboration for smooth execution</span></li>
-                                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Broadened public access to technology education</span></li>
+                                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Facilitated <strong>cross-division collaboration</strong> for smooth execution</span></li>
+                                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Broadened public access to <strong>technology education</strong></span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -732,8 +728,8 @@
                                 <span class="text-xs text-zinc-500 bg-blue-500/10 px-3 py-1 rounded-full">Aug – Dec 2025</span>
                             </div>
                             <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Guided incoming students through admission and orientation</span></li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Acted as bridge between students and university</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Guided incoming students through <strong>admission and orientation</strong></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Acted as <strong>bridge between students and university</strong></span></li>
                             </ul>
                         </div>
 
@@ -747,8 +743,8 @@
                                 <span class="text-xs text-zinc-500 bg-blue-500/10 px-3 py-1 rounded-full">Jun – Sep 2024</span>
                             </div>
                             <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Mentored students in programming logic and debugging</span></li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Achieved 90% comprehension rate through hands-on guidance</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Mentored students in <strong>programming logic and debugging</strong></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Achieved <strong>90% comprehension rate</strong> through hands-on guidance</span></li>
                             </ul>
                         </div>
 
@@ -765,9 +761,9 @@
                                 <div class="expandable" id="expand-compfest16">
                                     <div>
                                         <ul class="space-y-1.5">
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Contacted companies to participate in main event exhibits</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Approached and pitched to potential company partners</span></li>
-                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Managed virtual playground and CV clinic operations</span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Contacted companies to participate in <strong>main event exhibits</strong></span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Approached and pitched to <strong>potential company partners</strong></span></li>
+                                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Managed <strong>virtual playground and CV clinic</strong> operations</span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -788,8 +784,8 @@
                                 <span class="text-xs text-zinc-500 bg-blue-500/10 px-3 py-1 rounded-full">Jul – Aug 2024</span>
                             </div>
                             <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1.5">
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Guided new students through university adaptation missions</span></li>
-                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Fostered inclusive environment and provided academic guidance</span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Guided new students through <strong>university adaptation missions</strong></span></li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 mt-0.5 flex-shrink-0"></i><span>Fostered <strong>inclusive environment</strong> and provided academic guidance</span></li>
                             </ul>
                         </div>
                     </div>
@@ -943,8 +939,8 @@
         // ---- Typewriter effect ----
         const roles = [
             'Full-Stack Developer',
-            'Backend Engineer (Spring Boot)',
-            'Next.js & Django Builder',
+            'Backend Engineer',
+            'QA and Tester',
             'IS Student @ Universitas Indonesia'
         ];
         let roleIdx = 0, charIdx = 0, isDeleting = false;
