@@ -114,12 +114,7 @@
             display: none;
         }
         
-        /* Skill bar animation */
-        .skill-bar-fill {
-            width: 0;
-            transition: width 1.2s ease;
-        }
-        .skill-bar-fill.animate { width: var(--target); }
+
         
         /* Back to top */
         #back-to-top {
@@ -290,59 +285,20 @@
                             <span class="px-3 py-1 bg-violet-500/10 border border-violet-500/20 rounded-full">Spring Boot Microservices</span>
                             <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full">Next.js Full-Stack</span>
                             <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">System Architecture</span>
-                            <span class="px-3 py-1 bg-rose-500/10 border border-rose-500/20 rounded-full">QA</span>
+                            <span class="px-3 py-1 bg-rose-500/10 border border-rose-500/20 rounded-full">Quality Assurance</span>
                             <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full">System Security</span>
                         </div>
                     </div>
                 </div>
                 <div>
                     <h3 class="text-sm font-bold gradient-text uppercase tracking-wider mb-5">Core Competencies</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium text-zinc-700 dark:text-zinc-300">Java / Spring Boot</span>
-                                <span class="text-zinc-400">90%</span>
-                            </div>
-                            <div class="h-2 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
-                                <div class="skill-bar-fill h-full bg-gradient-to-r from-violet-500 to-blue-500 rounded-full" style="--target:90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium text-zinc-700 dark:text-zinc-300">Python / Django</span>
-                                <span class="text-zinc-400">85%</span>
-                            </div>
-                            <div class="h-2 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
-                                <div class="skill-bar-fill h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" style="--target:85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium text-zinc-700 dark:text-zinc-300">Next.js / React</span>
-                                <span class="text-zinc-400">80%</span>
-                            </div>
-                            <div class="h-2 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
-                                <div class="skill-bar-fill h-full bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full" style="--target:80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium text-zinc-700 dark:text-zinc-300">PostgreSQL / Databases</span>
-                                <span class="text-zinc-400">85%</span>
-                            </div>
-                            <div class="h-2 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
-                                <div class="skill-bar-fill h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full" style="--target:85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-medium text-zinc-700 dark:text-zinc-300">Docker / AWS</span>
-                                <span class="text-zinc-400">75%</span>
-                            </div>
-                            <div class="h-2 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
-                                <div class="skill-bar-fill h-full bg-gradient-to-r from-orange-500 to-rose-500 rounded-full" style="--target:75%"></div>
-                            </div>
-                        </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-gradient-to-r from-violet-600 to-violet-700 text-white rounded-lg text-xs font-medium shadow-lg">Java / Spring Boot</span>
+                        <span class="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg text-xs font-medium shadow-lg">Python / Django</span>
+                        <span class="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-cyan-700 text-white rounded-lg text-xs font-medium shadow-lg">Next.js / React</span>
+                        <span class="px-3 py-1.5 bg-gradient-to-r from-violet-600 to-purple-700 text-white rounded-lg text-xs font-medium shadow-lg">PostgreSQL</span>
+                        <span class="px-3 py-1.5 bg-gradient-to-r from-orange-600 to-rose-700 text-white rounded-lg text-xs font-medium shadow-lg">Docker / AWS</span>
+                        <span class="px-3 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-lg text-xs font-medium shadow-lg">Burp Suite (Testing)</span>
                     </div>
                     <div class="mt-6 p-4 rounded-xl border border-violet-500/20 hover:border-violet-500 transition-all">
                         <h3 class="text-xs font-bold gradient-text uppercase tracking-wider mb-3 flex items-center gap-2">
@@ -940,7 +896,7 @@
         const roles = [
             'Full-Stack Developer',
             'Backend Engineer',
-            'QA and Tester',
+            'Quality Assurance and Tester',
             'IS Student @ Universitas Indonesia'
         ];
         let roleIdx = 0, charIdx = 0, isDeleting = false;
@@ -1027,17 +983,7 @@
 
         document.querySelectorAll('.stagger-fade').forEach(el => staggerObserver.observe(el));
 
-        // ---- Skill bar animation (Intersection Observer) ----
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
 
-        document.querySelectorAll('.skill-bar-fill').forEach(el => skillObserver.observe(el));
     </script>
 </body>
 </html>
